@@ -8,7 +8,7 @@
 
 ## Tech Stack
 
-- PostgreSQL - Database
+- PostgresSQL - Database
 - Django + Django REST Framework + SimpleJWT - Backend
 - React - Frontend
 
