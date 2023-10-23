@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'rest_framework',
     'backend_project.backend_app',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -74,6 +74,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'backend_project.wsgi.application'
 
