@@ -21,7 +21,6 @@ from backend_project.backend_app import views
 
 router = routers.DefaultRouter()
 router.register(r'url', views.UrlViewSet)
-router.register(r'user', views.UserViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
