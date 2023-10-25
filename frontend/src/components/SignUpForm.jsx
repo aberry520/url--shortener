@@ -1,4 +1,4 @@
-export const SignUp = () => {
+export const SignUpForm = () => {
     return (
         <>
             <form>
@@ -7,7 +7,7 @@ export const SignUp = () => {
                 <br/>
                 <input type="text" placeholder="create password" />
                 <br/>
-                <input type="text" placeholder="validate password" />
+                <input type="text" placeholder="confirm password" />
             </form>
         </>
     )
