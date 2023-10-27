@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Root from './routes/root.jsx'
-import Home from './routes/home'
+import Root, { loader as rootLoader } from './routes/root.jsx'
+import Home, {loader as homeLoader} from './routes/home'
 import SignUp from './routes/signup'
 import LogIn from './routes/login'
 
@@ -12,10 +12,12 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    // loader: rootLoader,
     children: [
       {
         index: true,
         element: <Home />,
+        loader: homeLoader,
       },
       {
         path: "signup/",
