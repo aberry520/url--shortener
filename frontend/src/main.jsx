@@ -6,6 +6,7 @@ import Root, { loader as rootLoader } from './routes/root.jsx'
 import Home, {loader as homeLoader} from './routes/home'
 import SignUp from './routes/signup'
 import LogIn from './routes/login'
+import ErrorPage from './routes/error-page'
 
 
 const router = createBrowserRouter([
@@ -13,21 +14,24 @@ const router = createBrowserRouter([
     path: "/",
     element: <Root />,
     // loader: rootLoader,
-    children: [
-      {
-        index: true,
-        element: <Home />,
-        loader: homeLoader,
-      },
-      {
-        path: "signup/",
-        element: <SignUp />,
-      },
-      {
-        path: "login/",
-        element: <LogIn />,
-      },
-    ],
+    children: [{
+      errorElement:<ErrorPage/> ,
+      children: [
+        {
+          index: true,
+          element: <Home />,
+          loader: homeLoader,
+        },
+        {
+          path: "signup/",
+          element: <SignUp />,
+        },
+        {
+          path: "login/",
+          element: <LogIn />,
+        },
+      ],
+    }]  
   }
 ])
 
