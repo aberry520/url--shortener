@@ -4,21 +4,12 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.tokens import RefreshToken
 from .models import URL
-from .serializers import UrlSerializer
+from .serializers import UrlSerializer, MyTokenObtainPairSerializer
 
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 
-class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
-    @classmethod
-    def get_token(cls, user):
-        token = super().get_token(user)
 
-        # Add custom claims
-        token['username'] = user.username
-        # ...
-
-        return token
     
 class MyTokenObtainPairView(TokenObtainPairView):
      serializer_class = MyTokenObtainPairSerializer
@@ -26,7 +17,8 @@ class MyTokenObtainPairView(TokenObtainPairView):
 class UrlViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
-    queryset = URL.objects.all().order_by('title')
+    queryset = URL.objects.all().filter(user=1)
+#     order_by('title')
     serializer_class = UrlSerializer
 
 class LogoutView(APIView):
